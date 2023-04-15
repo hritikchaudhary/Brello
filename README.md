@@ -1,8 +1,11 @@
 # Brello
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+## Angular Kanban Board Component
+This is an Angular project that manages a Kanban board application. The Kanban board is used to track the progress of tasks across different stages or categories. The component defines a number of methods to handle user interactions with the board, such as adding or deleting categories and tasks, and dragging and dropping tasks between categories.
+
 
 ## Development server
+Run `npm install` to install necessary dependencies.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
@@ -22,6 +25,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Contributing
+Contributions are welcome! Please open an issue or pull request if you would like to contribute to the project for more info check [Contributing Guide](contributing.md).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
