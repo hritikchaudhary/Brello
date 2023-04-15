@@ -1,38 +1,38 @@
+<div style="text-align: center;">
+  <input #addCategory matInput id="inputCategory" name="addCategory" type="text"
+    placeholder="Enter Category to Add">&nbsp; &nbsp;
+  <button mat-raised-button (click)="onAddButton(addCategory.value); addCategory.value=''">
+    Add Category
+  </button>
+  <p #errorMessageElement class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
+<br>
 <div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  <div class="task-container" *ngFor="let category of categories let i=index">
+    <button mat-icon-button class="delete-button" (click)="onDeleteCategory(i)">
+      Delete Category
+    </button>
+    <h2>{{category.categoryName}}</h2>
+    <div cdkDropList [cdkDropListData]="category.tasks" class="task-list" (cdkDropListDropped)="drop($event)">
+      <div class="task-box" *ngFor="let item of category.tasks" cdkDrag>
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <p>Assignee: {{item.assignee}}</p>
+        <p>Reporter: {{item.reporter}}</p>
+        <p>Date: {{item.date | date}}</p>
+        <button mat-icon-button (click)="onDeleteTask(i, item)">
+          Delete Task
+        </button>
       </div>
     </div>
-
-    <div class="example-container">
-        <h2>In Progress</h2>
-    
-        <div
-          cdkDropList
-          [cdkDropListData]="inProgress"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of inProgress" cdkDrag>{{item}}</div>
-        </div>
-      </div>
-  
-    <div class="example-container">
-      <h2>Done</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="done"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-      </div>
-    </div>
+    <br><br>
+    <input #addItemTitle matInput name="addItemTitle" type="text" placeholder="Enter Title"><br>
+    <input #addItemDescription matInput name="addItemDescription" type="text" placeholder="Enter Description"><br>
+    <input #addItemAssignee matInput name="addItemAssignee" type="text" placeholder="Enter Assignee"><br>
+    <input #addItemReporter matInput name="addItemReporter" type="text" placeholder="Enter Reporter"> <br> <br>
+    <button mat-raised-button
+      (click)="onAddItem(addItemTitle.value, addItemDescription.value, addItemAssignee.value, addItemReporter.value, i); addItemTitle.value=''; addItemDescription.value=''; addItemAssignee.value=''; addItemReporter.value=''">
+      Add Item
+    </button>
   </div>
-  
+</div>
